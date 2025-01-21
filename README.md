@@ -1,10 +1,11 @@
 # SKN10-1st-4Team
 <br/>
 
-## ⭐ 프로젝트 팀
+![](https://cdn.imweb.me/upload/S20240314bd10436a7991a/41a9769cc44e6.png)
+<br/>
 <br/>
 
-###  팀원
+## ⭐ 프로젝트 팀
 <br/>
 
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
@@ -39,6 +40,7 @@
 
 2. 연도별 및 지역별 자동차 등록 현황 데이터를 시각화하여, 공공 및 민간 부분에서 데이터를 기반 정책 결정을 지원한다.
 <br/>
+<br/>
 
 ### 프로젝트 내용
 <br/>
@@ -48,11 +50,12 @@
 <br/>
 
 2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Matplotlib** 라이브러리을 통해 시각화한다.
+- 수집한 데이터를 Python의 **Matplotlib** 라이브러리 통해 시각화한다.
 <br/>
 
 3. **주요 3개 자동차 회사 FAQ**<br/>
 - 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 정리하고, 이를 조회할 수 있게 한다.
+<br/>
 <br/>
 
 ### 프로젝트 기대 효과
@@ -66,6 +69,7 @@
 
 3. **기업 FAQ 조회 시스템**을 통해 소비자의 정보 접근성을 높인다.
 <br/>
+<br/>
 
 ## 📌 기술 스택
 <br/>
@@ -77,12 +81,17 @@
 
 ### 데이터 가공 및 처리
 
-![](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) &nbsp; ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) &nbsp; ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white)
 <br/>
 
 ### 화면 구현
 
-![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white) &nbsp; ![](https://img.shields.io/badge/streamlit-FF0000?style=for-the-badge&logo=streamlit&logoColor=white)
+<br/>
+
+### 버전 관리 및 협업
+
+![](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=github&logoColor=white)
 <br/>
 <br/>
 

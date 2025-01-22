@@ -18,7 +18,7 @@ connection = pymysql.connect(**db_config)
 cursor = connection.cursor()
 
 # 테이블 이름
-table_name = "Car_t"
+table_name = "Car"
 
 # CSV 파일 읽고 데이터 삽입
 try:

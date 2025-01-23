@@ -129,6 +129,13 @@ with tab2:
 
     if 'search_query' in st.session_state and st.session_state.search_query:
         k_faq_data = [item for item in k_faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
+    else:
+        filtered_data = k_faq_data
+
+    # 검색 결과가 없을 경우 메시지 출력
+    if len(filtered_data) == 0:
+        st.write("검색 결과가 없습니다.")
+        #st.stop()
 
     # 페이지네이션 설정
     items_per_page = 10

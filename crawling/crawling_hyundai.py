@@ -14,7 +14,7 @@ URL = "https://www.hyundai.com/kr/ko/e/customer/center/faq"
 
 driver = webdriver.Chrome()
 driver.get(URL)
-# 딕셔너리에 페이지넘버, 질문넘버 저장
+# 리스트에 딕셔너리로 내용 저장
 qna_list = []
 
 for page_id in range(4):

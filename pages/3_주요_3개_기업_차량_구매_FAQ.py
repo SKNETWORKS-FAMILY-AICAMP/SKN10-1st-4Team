@@ -156,11 +156,11 @@ with tab3:
         if st.button("⬅️ 이전", key="prev"):
             if st.session_state.current_page > 0:
                 st.session_state.current_page -= 1
+    
+    with col2:
+        st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
 
     with col3:
         if st.button("다음 ➡️", key="next"):
             if st.session_state.current_page < total_pages - 1:
                 st.session_state.current_page += 1
-
-    # 페이지 정보 표시
-    st.write(f"페이지 {st.session_state.current_page + 1} / {total_pages}")

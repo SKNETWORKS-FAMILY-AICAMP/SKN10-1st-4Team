@@ -173,4 +173,4 @@
 ![](/images/final_screen4.png)
 
 4. 브랜드별 자동차 판매 순위
-![]()
+![](/images/final_screen5.png)

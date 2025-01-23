@@ -10,8 +10,7 @@
 
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 팀장 | 데이터 수집 및 저장 | 데이터 수집 및 저장 | 화면 설계 | 라이브러리 조사 | 화면 설계
-| 팀장 | 데이터 수집 및 저장 | 데이터 수집 및 저장 | 화면 설계 | 라이브러리 조사 | 화면 설계
+| 팀장 / 지역별 자동차 등록 현황 (그래프) | ERD 설계 / DB 구현 | ERD 설계 / 현대자동차 FAQ | 화면 설계 / 제네시스 FAQ | 라이브러리 조사 / 연도별 자동차 등록 현황 | 화면 설계 / 기아자동차 FAQ / 지역별 자동차 등록 현황 (지도) / 브랜드별 자동차 판매 현황
 | [@INe](https://github.com/INe904) | [@kkminhye](https://github.com/kkminhye) | [@yeseulnim](https://github.com/yeseulnim) | [@sinminju](https://github.com/sinminju) | [@redwin02](https://github.com/redwin-02) | [@HIHO9999](https://github.com/HIHO999) |
 <br/>
 

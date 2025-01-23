@@ -58,6 +58,8 @@ fig = px.pie(df, names = "CityName", values="CarCount",
 fig.update_traces(textposition='outside', textinfo='label+value+percent', textfont_color="black", hole=.4,
                   direction='counterclockwise')
 fig.add_annotation(dict(text=f"{selected_year}", x=0.5, y=0.5, font_color="black", font_size=25, showarrow=False))
+fig.add_annotation(dict(text="단위: 만 대", x=0.5, y=0.45, font_color="gray", font_size=13, showarrow=False))
+
 fig.update_layout(width=1600, height=850, legend=dict(
     yanchor="top",
     y=1.05

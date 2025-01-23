@@ -7,6 +7,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from time import sleep
 
 import pandas as pd
+import json
 
 
 URL = "https://www.hyundai.com/kr/ko/e/customer/center/faq"
@@ -58,7 +59,7 @@ for page_id in range(4):
             # 질문 다시 클릭 (아래질문 보이도록록)
             faq_title[0].click()
             sleep(1)
-            qna_list.append([page_id,question_id,faq_question_text,faq_answer_text,url])
+            qna_list.append({"question": faq_question_text, "answer": faq_answer_text, "links": url})
 
         except TimeoutException:
             print("Timed out waiting for page to load")
@@ -73,3 +74,7 @@ for page_id in range(4):
  
 qna_df = pd.DataFrame(qna_list, columns = ["page_num","question_num","question","answer","link"])
 qna_df.to_csv(path_or_buf="../data/hyundai_qna.csv")
+
+# 결과를 JSON 파일로 저장
+with open("../data/hyundai_qna.json", "w", encoding="utf-8") as json_file:
+    json.dump(qna_list, json_file, ensure_ascii=False, indent=4)

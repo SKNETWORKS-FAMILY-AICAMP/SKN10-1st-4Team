@@ -148,7 +148,7 @@ with tab3:
 
 
     
-    file_path = 'genesis_faq.json' # 경로설정
+    file_path = 'data/genesis_faq.json' # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 

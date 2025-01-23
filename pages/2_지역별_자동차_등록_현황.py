@@ -2,8 +2,14 @@ import streamlit as st
 import pymysql
 import pandas as pd
 import plotly.express as px
+from common.insert_data import insert_data
+from common.insert_data_city import insert_data_city
 
 st.set_page_config(layout="wide")
+
+insert_data()
+insert_data_city()
+st.success("Database initialized successfully!")
 
 st.title("📊 지역별 자동차 등록 현황")
 st.divider()
@@ -52,7 +58,7 @@ fig = px.pie(df, names = "CityName", values="CarCount",
 fig.update_traces(textposition='outside', textinfo='label+value+percent', textfont_color="black", hole=.4,
                   direction='counterclockwise')
 fig.add_annotation(dict(text=f"{selected_year}", x=0.5, y=0.5, font_color="black", font_size=25, showarrow=False))
-fig.update_layout(width=1600, height=900, legend=dict(
+fig.update_layout(width=1600, height=850, legend=dict(
     yanchor="top",
     y=1.05
 ))

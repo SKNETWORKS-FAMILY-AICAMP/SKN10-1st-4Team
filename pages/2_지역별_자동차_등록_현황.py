@@ -45,8 +45,7 @@ df = pd.DataFrame(result)
 fig = px.pie(df, names = "CityName", values="CarCount",
              hover_data={'CarCount': True}, labels={'CarCount': 'CarCount'})
 fig.update_traces(textposition='outside', textinfo='label+value+percent', textfont_color="black", hole=.4,
-                  direction='counterclockwise', rotation=-30,
-                  hovertemplate='%{names}<br>%{values} (%{percent})')
+                  direction='counterclockwise', rotation=-30)
 fig.add_annotation(dict(text=f"{selected_year}", x=0.5, y=0.5, font_color="black", font_size=25, showarrow=False))
 fig.update_layout(height=600)
 st.plotly_chart(fig)

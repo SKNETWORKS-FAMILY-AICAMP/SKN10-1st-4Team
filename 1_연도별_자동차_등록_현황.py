@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import pymysql
 
-st.title("📊 지역별 자동차 등록 현황")
+st.title("📊 연도별 자동차 등록 현황")
 st.divider()
 
 # 데이터베이스 연결 설정
@@ -40,14 +40,14 @@ with st.container():
 
     with col1:
         start_year = st.selectbox(
-            'Select a start year:', 
+            '첫번째 년도를 선택해주세요.', 
             years, 
             index=default_start_year_index
         )
 
     with col2:
         end_year = st.selectbox(
-            'Select an end year:', 
+            '마지막 년도를 선택해주세요.', 
             years, 
             index=default_end_year_index
         )
@@ -65,7 +65,7 @@ else:
             filtered_data, 
             x="Year", 
             y="YearofCar", 
-            title="Yearly Car Registration Data"
+            title="조회결과"
         )
 
         # 그래프 출력

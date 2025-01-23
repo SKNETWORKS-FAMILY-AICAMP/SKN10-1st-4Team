@@ -50,11 +50,11 @@
 <br/>
 
 2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Matplotlib** 라이브러리 통해 시각화한다.
+- 수집한 데이터를 Python의 **Plotly** 라이브러리 통해 시각화한다.
 <br/>
 
-3. **주요 3개 자동차 회사 FAQ**<br/>
-- 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 정리하고, 이를 조회할 수 있게 한다.
+3. **국내 주요 3개 자동차 회사 FAQ**<br/>
+- 국내 판매율이 가장 높은 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 정리하고, 이를 조회할 수 있게 한다.
 <br/>
 <br/>
 
@@ -70,6 +70,33 @@
 3. **기업 FAQ 조회 시스템**을 통해 소비자의 정보 접근성을 높인다.
 <br/>
 <br/>
+
+## 📌 설치/사용 방법
+<br/>
+
+### 1. GitHub에서 Repository 클론
+
+```python
+    git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-4Team.git
+```
+### 2. 라이브러리 설치
+```python
+    pip install -r requirements.txt
+```
+
+### 3. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
+※ 웹 크롤링 결과물은 data 폴더에 json으로 저장되어 있으므로, 별도 크롤링 없이 바로 실행이 가능함. 다만 신규 데이터 확인을 위해 웹크롤링이 필요한 경우 아래 코드를 사용할 수 있음.
+```python
+    python kia_faq.py
+```
+```python
+    python hyundai_faq.py
+```
+### 4. 서비스 실행
+```python
+    streamlit run 1_연도별_자동차_등록_현황.py
+```
+
 
 ## 📌 기술 스택
 <br/>
@@ -98,11 +125,42 @@
 ## 💻 화면 설계
 <br/>
 
+1. 연도별 자동차 등록 현황
+![](/images/figma1.png)
+
+2. 지역별 자동차 등록 현황
+![](/images/figma2.png)
+
+3. 주요 3개 기업 차량 구매 FAQ
+![](/images/figma3.png)
+
 ## 💻 데이터 가공 및 처리
 <br/>
 
-## 💻 화면 구현
-<br/>
+### ERD 
+
+![](/images/erd.png)
+
+
+### 실제 데이터 가공 및 처리
+
+**1. 자동차 등록 현황**
+- 자료 출처 : [지표누리 자동차 등록 현황](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)
+- 자료 가공 : 개별 Excel 파일 다운로드 -> CSV로 변경 -> MySQL 데이터베이스 테이블로 저장
+
+**2. 주요 3개 기업 차량 구매 FAQ**
+- 자료 출처 : 각 기업 홈페이지의 'FAQ' 중 '차량 구매' 항목
+- 자료 가공 : Selenium으로 웹크롤링 -> JSON으로 저장 
+
+
 
 ## 📌 프로젝트 최종 결과
 <br/>
+
+1. 연도별 자동차 등록 현황
+
+2. 지역별 자동차 등록 현황
+![](/images/final_screen2.png)
+
+3. 주요 3개 기업 차량 구매 FAQ
+![](/images/final_screen3.png)

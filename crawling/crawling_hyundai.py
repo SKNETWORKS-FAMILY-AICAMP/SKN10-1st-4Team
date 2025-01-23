@@ -6,7 +6,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 from time import sleep
 
-import pandas as pd
+#import pandas as pd
 import json
 
 
@@ -32,11 +32,11 @@ for page_id in range(4):
                 pass
             faq_title = faq_list.find_elements(By.CSS_SELECTOR,f"div[data-id='{question_id}'] button.list-title")
             driver.execute_script("arguments[0].scrollIntoView({block:'center'});",faq_title[0])
-            sleep(1)
+            sleep(0.5)
 
             #질문타이틀 클릭하기
             faq_title[0].click()
-            sleep(1)
+            sleep(0.5)
 
             #질문타이틀 텍스트 받아오기
             faq_question = faq_title[0].find_element(By.CSS_SELECTOR, "span.list-content[data-v-28d34f54]")
@@ -50,16 +50,16 @@ for page_id in range(4):
 
             # 링크 URL 가져오기
             try:
-                link = faq_answer.find_element(By.CSS_SELECTOR, "a")
-                url = link.get_attribute("href")
+                link_whole = faq_answer.find_elements(By.TAG_NAME, "a")
+                link = {
+                    "url" : link_whole[0].get_attribute("href"),
+                    "text" : link_whole[0].text
+                    }
             except:
-                url = None
+                link = ""
             #print("링크 URL:", url)
             
-            # 질문 다시 클릭 (아래질문 보이도록록)
-            faq_title[0].click()
-            sleep(1)
-            qna_list.append({"question": faq_question_text, "answer": faq_answer_text, "links": url})
+            qna_list.append({"question": faq_question_text, "answer": faq_answer_text, "link": link})
 
         except TimeoutException:
             print("Timed out waiting for page to load")
@@ -72,9 +72,9 @@ for page_id in range(4):
     next_button.click()
     sleep(1)
  
-qna_df = pd.DataFrame(qna_list, columns = ["page_num","question_num","question","answer","link"])
-qna_df.to_csv(path_or_buf="../data/hyundai_qna.csv")
+#qna_df = pd.DataFrame(qna_list, columns = ["page_num","question_num","question","answer","link"])
+#qna_df.to_csv(path_or_buf="data/hyundai_qna.csv")
 
 # 결과를 JSON 파일로 저장
-with open("../data/hyundai_qna.json", "w", encoding="utf-8") as json_file:
+with open("data/hyundai_qna.json", "w", encoding="utf-8") as json_file:
     json.dump(qna_list, json_file, ensure_ascii=False, indent=4)

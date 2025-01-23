@@ -36,7 +36,7 @@ for i, (_, row) in enumerate(filtered_car_df.iterrows()):
         fill=True,
         fill_color=colors[i],
         fill_opacity=0.6,
-        popup=f"{city_data['CityName']} ({row['등록대수']} 대)"
+        popup=f"{city_data['CityName']} ({row['등록대수']} 만만대)"
     ).add_to(m)
 
 # 지도 표시

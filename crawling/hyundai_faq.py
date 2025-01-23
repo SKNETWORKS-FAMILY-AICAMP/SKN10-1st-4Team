@@ -76,5 +76,5 @@ for page_id in range(4):
 #qna_df.to_csv(path_or_buf="data/hyundai_qna.csv")
 
 # 결과를 JSON 파일로 저장
-with open("data/hyundai_qna.json", "w", encoding="utf-8") as json_file:
+with open("data/hyundai_faq.json", "w", encoding="utf-8") as json_file:
     json.dump(qna_list, json_file, ensure_ascii=False, indent=4)

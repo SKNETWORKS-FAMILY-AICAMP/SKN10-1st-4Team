@@ -10,7 +10,7 @@ tab1, tab2, tab3 = st.tabs(['현대', '기아', '제네시스'])
 with tab1:
     st.image("images/hyundai.png")
 
-    file_path = 'data\hyundai_qna.json'  # 경로설정
+    file_path = 'data\hyundai_faq.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 

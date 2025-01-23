@@ -146,7 +146,7 @@
 ### 실제 데이터 가공 및 처리
 
 **1. 자동차 등록 현황**
-- 자료 출처 : [지표누리 자동차 등록 현황](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)
+- 자료 출처 : <b>[지표누리 자동차 등록 현황](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>
 - 자료 가공 : 개별 Excel 파일 다운로드 -> CSV로 변경 -> MySQL 데이터베이스 테이블로 저장
 
 **2. 주요 3개 기업 차량 구매 FAQ**
@@ -163,7 +163,7 @@
 <br/>
 
 1. 연도별 자동차 등록 현황
-![]()
+![](/images/final_screen1.png)
 
 2. 지역별 자동차 등록 현황
 ![](/images/final_screen2.png)

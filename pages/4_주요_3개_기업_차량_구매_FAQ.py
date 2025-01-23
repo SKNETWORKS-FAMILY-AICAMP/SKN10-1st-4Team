@@ -29,6 +29,7 @@ with tab1:
         st.write("FAQ 데이터가 없습니다.")
         st.stop()
 
+
     # 검색 기능
     # 검색 기능 스타일링
     search_style = """
@@ -62,7 +63,7 @@ with tab1:
     # 검색 결과가 없을 경우 메시지 출력
     if len(filtered_data) == 0:
         st.write("검색 결과가 없습니다.")
-        st.stop()
+        #st.stop()
 
     # 한 페이지에 표시할 FAQ 수와 페이지 계산
     faq_per_page = 10
@@ -196,7 +197,7 @@ with tab3:
     # FAQ 데이터 확인 및 예외 처리
     if len(j_faq_data) == 0:
         st.write("FAQ 데이터가 없습니다.")
-        st.stop()
+        #st.stop()
 
     # 검색 기능
     def search():

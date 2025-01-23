@@ -163,7 +163,7 @@
 <br/>
 
 1. 연도별 자동차 등록 현황
-![]()
+![](/images/final_screen1.png)
 
 2. 지역별 자동차 등록 현황
 ![](/images/final_screen2.png)

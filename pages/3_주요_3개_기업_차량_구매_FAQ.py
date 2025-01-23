@@ -93,7 +93,7 @@ with tab2:
 
 with tab3:
     st.write("제네시스 차량 구매 FAQ")
-    
+
     # JSON 파일 로드
     file_path = 'genesis_faq.json'
     try:
@@ -113,7 +113,10 @@ with tab3:
         st.stop()
 
     # 검색 기능
-    search_query = st.text_input("검색어를 입력하세요:")
+    def search():
+        st.session_state.search_query = st.session_state.search_input
+
+    search_query = st.text_input("", key="search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
     if search_query:
         filtered_data  = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
     else:

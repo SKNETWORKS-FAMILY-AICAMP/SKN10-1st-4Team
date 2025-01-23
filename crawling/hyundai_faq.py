@@ -14,7 +14,7 @@ URL = "https://www.hyundai.com/kr/ko/e/customer/center/faq"
 
 driver = webdriver.Chrome()
 driver.get(URL)
-# 딕셔너리에 페이지넘버, 질문넘버 저장
+# 리스트에 딕셔너리로 내용 저장
 qna_list = []
 
 for page_id in range(4):
@@ -76,5 +76,5 @@ for page_id in range(4):
 #qna_df.to_csv(path_or_buf="data/hyundai_qna.csv")
 
 # 결과를 JSON 파일로 저장
-with open("data/hyundai_qna.json", "w", encoding="utf-8") as json_file:
+with open("data/hyundai_faq.json", "w", encoding="utf-8") as json_file:
     json.dump(qna_list, json_file, ensure_ascii=False, indent=4)

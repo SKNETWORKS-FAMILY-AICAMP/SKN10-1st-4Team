@@ -39,7 +39,7 @@ with tab1:
         answer = item.get("answer", "답변 없음")
         link = item.get("link","")
         # 하이퍼링크 처리
-        if link != "":
+        if link:
             answer = answer.replace(link["text"], f"[{link['text']}]({link['url']})")
 
         with st.expander(f"❓ {question}"):

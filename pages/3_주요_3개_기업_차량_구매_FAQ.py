@@ -16,14 +16,37 @@ with tab2:
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
-    # 검색 기능
-    search_query = st.text_input("검색어를 입력하세요:")
-    if search_query:
-        faq_data = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
+    # 검색 기능 스타일링
+    search_style = """
+        <style>
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        </style>
+    """
+    st.markdown(search_style, unsafe_allow_html=True)
+
+    def search():
+        st.session_state.search_query = st.session_state.search_input
+
+    st.text_input("", key="search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
+
+    if 'search_query' in st.session_state and st.session_state.search_query:
+        faq_data = [item for item in faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
 
     # 페이지네이션 설정
     items_per_page = 10
     total_pages = (len(faq_data) + items_per_page - 1) // items_per_page
+
 
     # 페이지 번호 선택
     if 'page' not in st.session_state or st.session_state.page > total_pages:
@@ -66,6 +89,7 @@ with tab2:
         with col3:
             if page < total_pages and st.button("다음", key="next_page"):
                 change_page(page + 1)
+
 
 with tab3:
     st.write("제네시스 차량 구매 FAQ")

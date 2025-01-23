@@ -11,6 +11,7 @@
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 팀장 | 데이터 수집 및 저장 | 데이터 수집 및 저장 | 화면 설계 | 라이브러리 조사 | 화면 설계
+| 팀장 | 데이터 수집 및 저장 | 데이터 수집 및 저장 | 화면 설계 | 라이브러리 조사 | 화면 설계
 | [@INe](https://github.com/INe904) | [@kkminhye](https://github.com/kkminhye) | [@yeseulnim](https://github.com/yeseulnim) | [@sinminju](https://github.com/sinminju) | [@redwin02](https://github.com/redwin-02) | [@HIHO9999](https://github.com/HIHO999) |
 <br/>
 
@@ -47,14 +48,15 @@
 
  1. **데이터 수집 및 가공**<br/>
 - <b>[지표누리](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>에서 제공하는 연도별 및 지역별 자동차 등록 현황 데이터를 수집하여 목적에 맞게 가공한 후, 데이터베이스에 저장한다.
+- 다나와의 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지에서 제공하는 브랜드별 자동차 판매 실적을 수집하여 목적에 맞게 가공한 후 CSV 파일로 저장한다다
 <br/>
 
 2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Plotly** 라이브러리 통해 시각화한다.
+- 수집한 데이터를 Python의 **Plotly** 및 **MatPlotLib** 라이브러리를 통해 시각화한다.
 <br/>
 
 3. **국내 주요 3개 자동차 회사 FAQ**<br/>
-- 국내 판매율이 가장 높은 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 정리하고, 이를 조회할 수 있게 한다.
+- 국내 판매율이 가장 높은 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 수집 및 정리하고, 이를 조회할 수 있게 한다.
 <br/>
 <br/>
 
@@ -149,8 +151,12 @@
 - 자료 가공 : 개별 Excel 파일 다운로드 -> CSV로 변경 -> MySQL 데이터베이스 테이블로 저장
 
 **2. 주요 3개 기업 차량 구매 FAQ**
-- 자료 출처 : 각 기업 홈페이지의 'FAQ' 중 '차량 구매' 항목
+- 자료 출처 : 국내 3대 자동차 기업 (<b>[현대](https://www.hyundai.com/kr/ko/e/customer/center/faq)</b>, <b>[기아](https://www.kia.com/kr/customer-service/center/faq)</b>, <b>[제네시스](https://www.genesis.com/kr/ko/support/faq.html)</b>) 홈페이지의 'FAQ' 중 '차량 구매' 항목
 - 자료 가공 : Selenium으로 웹크롤링 -> JSON으로 저장 
+
+**3. 브랜드별 자동차 판매 실적**
+- 자료 출처 : 다나와의 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지
+- 자료 가공 : Selenium으로 웹크롤링 -> CSV로 저장
 
 
 

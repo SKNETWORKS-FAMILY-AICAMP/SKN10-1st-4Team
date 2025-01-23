@@ -3,7 +3,7 @@ import pandas as pd
 import folium
 from streamlit_folium import folium_static
 import random
-
+st.title("🌍 지역별 차량 등록 현황(지도)")
 # CSV 파일 경로
 car_file_path = 'data/Car.csv'
 city_file_path = 'data/City_m.csv'

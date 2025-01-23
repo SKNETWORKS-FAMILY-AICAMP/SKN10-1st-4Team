@@ -119,7 +119,39 @@ with tab3:
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
+<<<<<<< HEAD
     for item in faq_data:
+=======
+    # JSON 파일 로드
+    file_path = 'data\genesis_faq.json'
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            faq_data = json.load(file)
+    except Exception as e:
+        st.error(f"FAQ 데이터를 로드하는 중 오류 발생: {e}")
+        faq_data = []
+
+    # 세션 상태 초기화
+    if 'current_page' not in st.session_state:
+        st.session_state.current_page = 0
+
+    # FAQ 데이터 확인 및 예외 처리
+    if len(faq_data) == 0:
+        st.write("FAQ 데이터가 없습니다.")
+        st.stop()
+
+    # 한 페이지에 표시할 FAQ 수와 페이지 계산
+    faq_per_page = 5
+    total_pages = (len(faq_data) - 1) // faq_per_page + 1
+
+    # 현재 페이지에 해당하는 FAQ 가져오기
+    start_index = st.session_state.current_page * faq_per_page
+    end_index = start_index + faq_per_page
+    current_faqs = faq_data[start_index:end_index]
+
+    # 현재 페이지의 FAQ 출력
+    for item in current_faqs:
+>>>>>>> 4fe5f21acedc124b0090992ff7ffbf60997e7a1d
         question = item.get("question", "질문 없음")
         answer = item.get("answer", "답변 없음")
         with st.expander(f"❓ {question}"):

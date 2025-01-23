@@ -1,9 +1,10 @@
 import streamlit as st
 import json
 
+st.set_page_config(layout="centered")
+
 # 제목 및 탭 구성
 st.title("❓ 주요 3개 기업 차량 구매 FAQ")
-st.divider()
 
 tab1, tab2, tab3 = st.tabs(['현대', '기아', '제네시스'])
 
@@ -170,7 +171,7 @@ with tab2:
 
 
 with tab3:
-    st.write("제네시스 차량 구매 FAQ")
+    st.image("images/jenesis.png")
     
     file_path = 'data/genesis_faq.json' # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:

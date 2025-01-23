@@ -15,17 +15,17 @@ with tab1:
 
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
-            faq_data = json.load(file)
+            h_faq_data = json.load(file)
     except Exception as e:
         st.error(f"FAQ 데이터를 로드하는 중 오류 발생: {e}")
-        faq_data = []
+        h_faq_data = []
 
     # 세션 상태 초기화
     if 'page' not in st.session_state:
         st.session_state.page = 1
 
     # FAQ 데이터 확인 및 예외 처리
-    if len(faq_data) == 0:
+    if len(h_faq_data) == 0:
         st.write("FAQ 데이터가 없습니다.")
         st.stop()
 
@@ -55,9 +55,9 @@ with tab1:
     search_query = st.text_input("", key="hd_search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
 
     if search_query:
-        filtered_data  = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
+        filtered_data  = [item for item in h_faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
     else:
-        filtered_data = faq_data
+        filtered_data = h_faq_data
 
     # 검색 결과가 없을 경우 메시지 출력
     if len(filtered_data) == 0:
@@ -100,7 +100,7 @@ with tab2:
 
     file_path = 'data\kia_faq.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
-        faq_data = json.load(file)
+        k_faq_data = json.load(file)
 
     # 검색 기능 스타일링
     search_style = """
@@ -127,11 +127,11 @@ with tab2:
     st.text_input("", key="search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
 
     if 'search_query' in st.session_state and st.session_state.search_query:
-        faq_data = [item for item in faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
+        k_faq_data = [item for item in k_faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
 
     # 페이지네이션 설정
     items_per_page = 10
-    total_pages = (len(faq_data) + items_per_page - 1) // items_per_page
+    total_pages = (len(k_faq_data) + items_per_page - 1) // items_per_page
 
 
     # 페이지 번호 선택
@@ -144,7 +144,7 @@ with tab2:
     page = st.session_state.page
     start_idx = (page - 1) * items_per_page
     end_idx = start_idx + items_per_page
-    current_page_data = faq_data[start_idx:end_idx]
+    current_page_data = k_faq_data[start_idx:end_idx]
 
     for item in current_page_data:
         question = item.get("question", "질문 없음")
@@ -178,36 +178,35 @@ with tab2:
 
 
 with tab3:
-    st.image("images/jenesis.png")
-    
-    file_path = 'data/genesis_faq.json' # 경로설정
-    with open(file_path, 'r', encoding='utf-8') as file:
-        faq_data = json.load(file)
+    st.image("images\jenesis.png")
 
     # JSON 파일 로드
     file_path = 'data\genesis_faq.json'
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
-            faq_data = json.load(file)
+            j_faq_data = json.load(file)
     except Exception as e:
         st.error(f"FAQ 데이터를 로드하는 중 오류 발생: {e}")
-        faq_data = []
+        j_faq_data = []
 
     # 세션 상태 초기화
     if 'page' not in st.session_state:
         st.session_state.page = 1
 
     # FAQ 데이터 확인 및 예외 처리
-    if len(faq_data) == 0:
+    if len(j_faq_data) == 0:
         st.write("FAQ 데이터가 없습니다.")
         st.stop()
 
     # 검색 기능
-    search_query = st.text_input("검색어를 입력하세요:")
+    def search():
+        st.session_state.search_query = st.session_state.search_input
+
+    search_query = st.text_input("", key="j_search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
     if search_query:
-        filtered_data  = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
+        filtered_data  = [item for item in j_faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
     else:
-        filtered_data = faq_data
+        filtered_data = j_faq_data
 
     # 검색 결과가 없을 경우 메시지 출력
     if len(filtered_data) == 0:

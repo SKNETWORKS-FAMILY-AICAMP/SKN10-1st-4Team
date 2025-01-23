@@ -7,16 +7,18 @@ st.divider()
 tab1, tab2, tab3 = st.tabs(['현대', '기아', '제네시스'])
 
 with tab1:
-    st.write("현대 차량 구매 FAQ")
+    st.image("images/hyundai.png")
 
     file_path = 'data/hyundai_qna.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
     # 검색 기능
-    search_query = st.text_input("검색어를 입력하세요:", key = "hyundai_search_input")
-    if search_query:
-        faq_data = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
+    with st.container(border = True):
+        st.subheader("FAQ 검색")
+        search_query = st.text_input("검색어를 입력하세요:", key = "hyundai_search_input")
+        if search_query:
+            faq_data = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
 
     # 페이지네이션 설정
     items_per_page = 10

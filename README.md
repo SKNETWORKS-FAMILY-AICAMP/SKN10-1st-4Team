@@ -50,7 +50,7 @@
 <br/>
 
 2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Matplotlib** 라이브러리 통해 시각화한다.
+- 수집한 데이터를 Python의 **Plotly** 라이브러리 통해 시각화한다.
 <br/>
 
 3. **주요 3개 자동차 회사 FAQ**<br/>
@@ -70,6 +70,32 @@
 3. **기업 FAQ 조회 시스템**을 통해 소비자의 정보 접근성을 높인다.
 <br/>
 <br/>
+
+## 📌 설치/사용 방법
+<br/>
+
+### GitHub에서 Repository 클론
+
+```python
+    git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-4Team.git
+```
+### 라이브러리 설치
+```python
+    pip install -r requirements.txt
+```
+
+### 웹 크롤링 코드 실행 (생략 가능)
+※ 웹 크롤링 결과물은 data 폴더에 json으로 저장되어 있으므로, 별도 크롤링 없이 바로 실행이 가능함. 다만 신규 데이터 확인을 위해 웹크롤링이 필요한 경우 아래 코드를 사용할 수 있음.
+```python
+    python kia_faq.py
+```
+```python
+    python crawling_hyundai.py
+```
+
+
+
+
 
 ## 📌 기술 스택
 <br/>

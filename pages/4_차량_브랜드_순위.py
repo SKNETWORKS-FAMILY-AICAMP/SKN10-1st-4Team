@@ -39,7 +39,7 @@ with tab1:
 
     # 주요 지표 강조
     total_sales_domestic = domestic_data['판매량'].str.replace(',', '').astype(int).sum()
-    st.metric(label="국산차 총 판매량", value=f"{total_sales_domestic:,} 대")
+
 
     # 도넛 모양의 파이 차트 생성
     st.subheader('국산차 브랜드별 판매 비율')
@@ -91,7 +91,7 @@ with tab2:
 
     # 주요 지표 강조
     total_sales_foreign = filtered_data['판매량'].str.replace(',', '').astype(int).sum()
-    st.metric(label="수입차 총 판매량", value=f"{total_sales_foreign:,} 대")
+
 
     # 도넛 모양의 파이 차트 생성
     st.subheader('수입차 브랜드별 판매 비율')

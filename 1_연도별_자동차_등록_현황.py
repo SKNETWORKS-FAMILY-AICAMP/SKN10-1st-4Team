@@ -26,33 +26,47 @@ GROUP BY Year
 ORDER BY Year;
 """
 cf = pd.read_sql(car_data, connection)
-#st.write(ef)
-#st.write(cf)
-# df.columns = ['Year','CarCount']
-with st.container(height=100, border=1, key=None):
+
+# Streamlit 컨테이너
+with st.container():
     # 컬럼 레이아웃 사용
     col1, col2 = st.columns(2)
     # 년도 리스트 생성 및 선택
     years = ef['Year'].unique().tolist()
 
+    # 디폴트 값 설정
+    default_start_year_index = 0  # 첫 번째 연도를 디폴트로 설정
+    default_end_year_index = len(years) - 1  # 마지막 연도를 디폴트로 설정
+
     with col1:
-        start_year = st.selectbox('Select a start year:', years)
+        start_year = st.selectbox(
+            'Select a start year:', 
+            years, 
+            index=default_start_year_index
+        )
 
     with col2:
-        end_year = st.selectbox('Select an end year:', years)
+        end_year = st.selectbox(
+            'Select an end year:', 
+            years, 
+            index=default_end_year_index
+        )
 
-with st.container(height=484, border=1, key=None):
-    # 사용자 입력 값으로 필터링
-    filtered_data = cf[(cf["Year"] >= start_year) & (cf["Year"] <= end_year)]
+# 연도 범위 확인 및 데이터 필터링
+if start_year > end_year:
+    st.error("Error: The start year cannot be greater than the end year.")
+else:
+    with st.container():
+        # 사용자 입력 값으로 데이터 필터링
+        filtered_data = cf[(cf["Year"] >= start_year) & (cf["Year"] <= end_year)]
 
-    #st.write(filtered_data)
-    # 선택된 기간과 필터링된 데이터 출력
-    #st.write(f'Selected year range: {start_year} - {end_year}')
-    #st.write("Filtered data:")
-    #st.write(filtered_data)
+        # Plotly로 그래프 생성
+        fig = px.bar(
+            filtered_data, 
+            x="Year", 
+            y="YearofCar", 
+            title="Yearly Car Registration Data"
+        )
 
-    # Plotly를 사용하여 막대 그래프 그리기
-    fig = px.bar(filtered_data, x="Year", y="YearofCar", title="")
-
-    # 그래프 출력
-    st.plotly_chart(fig)
+        # 그래프 출력
+        st.plotly_chart(fig)

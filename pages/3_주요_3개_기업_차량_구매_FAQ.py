@@ -26,7 +26,7 @@ with tab2:
     total_pages = (len(faq_data) + items_per_page - 1) // items_per_page
 
     # 페이지 번호 선택
-    if 'page' not in st.session_state:
+    if 'page' not in st.session_state or st.session_state.page > total_pages:
         st.session_state.page = 1
 
     def change_page(page):
@@ -52,16 +52,32 @@ with tab2:
             for image in item.get("images", []):
                 st.image(image["src"], caption=image.get("alt", ""))
 
-
     page_numbers = [i for i in range(1, total_pages + 1)]
     
-    # 페이지 번호 클릭 시 세션 상태 업데이트 (버튼끼리 붙여서 배치)
-    cols = st.columns(len(page_numbers))
-    for idx, page_number in enumerate(page_numbers):
-        with cols[idx]:
-            st.button(f'{page_number}', key=f'page_{page_number}', on_click=change_page, args=(page_number,))
-
+    # 이전, 다음 버튼을 양쪽 끝에 배치하고 가운데에 현재 페이지 표시
+    button_container = st.container()
+    with button_container:
+        col1, col2, col3 = st.columns([1, 6, 1])
+        with col1:
+            if page > 1 and st.button("이전", key="prev_page"):
+                change_page(page - 1)
+        with col2:
+            st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
+        with col3:
+            if page < total_pages and st.button("다음", key="next_page"):
+                change_page(page + 1)
 
 with tab3:
     st.write("제네시스 차량 구매 FAQ")
 
+
+    
+    file_path = 'genesis_faq.json' # 경로설정
+    with open(file_path, 'r', encoding='utf-8') as file:
+        faq_data = json.load(file)
+
+    for item in faq_data:
+        question = item.get("question", "질문 없음")
+        answer = item.get("answer", "답변 없음")
+        with st.expander(f"❓ {question}"):
+            st.write(answer)

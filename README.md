@@ -167,10 +167,10 @@
 
 2. 지역별 자동차 등록 현황
 ![](/images/final_screen2.png)
-![]()
+![](/images/final_screen3.png)
 
 3. 주요 3개 기업 차량 구매 FAQ
-![](/images/final_screen3.png)
+![](/images/final_screen4.png)
 
 4. 브랜드별 자동차 판매 순위
 ![]()

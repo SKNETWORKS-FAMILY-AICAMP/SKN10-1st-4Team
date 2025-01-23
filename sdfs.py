@@ -7,13 +7,20 @@ st.divider()
 st.header('시도별 자동차 등록 수 현황')
 
 # 데이터 생성
-data = {
-    "연도": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
-    "Total 등록대수": [1887, 1940, 2012, 2099, 2180, 2253, 2320, 2368, 2437, 2491, 2550]
-}
+
+
+# CSV 파일 경로를 지정합니다.
+file_path = 'path/to/your/file.csv'
+
+# pandas를 사용해 CSV 파일을 DataFrame으로 읽어옵니다.
+df = pd.read_csv(file_path)
+
+# DataFrame 확인
+print(df.head())
+
 
 # DataFrame 생성
-df = pd.DataFrame(data)
+df = pd.DataFrame(sql)
 
 # 연도별 차량 증가 수 계산
 df['증가수'] = df['Total 등록대수'].diff().fillna(0).astype(int)
@@ -82,7 +89,6 @@ with st.container(height=550, border=1, key=None):
             xaxis_tickangle=-45,
             template="simple_white"
         )
-
 
         # Streamlit에 Plotly 그래프 표시
         st.plotly_chart(fig)

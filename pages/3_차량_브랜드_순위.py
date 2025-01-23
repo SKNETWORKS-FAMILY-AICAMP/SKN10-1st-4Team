@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 
+st.title("📊 브랜드별 차량 판매 현황")
+
 # 한글 폰트 설정
 font_path = 'C:/Windows/Fonts/malgun.ttf'  # Windows의 경우
 font_name = font_manager.FontProperties(fname=font_path).get_name()
@@ -45,16 +47,14 @@ def create_pie_chart(data, title, top_n, total_sales):
     st.pyplot(fig)
 
 def display_tab(title, df, top_n):
-    # 데이터 시각화
-    st.title(title)
-    st.divider()
 
     # 연도와 월 선택
     years = df['연도'].unique()
     months = df['월'].unique()
 
-    selected_year = st.selectbox('연도를 선택하세요:', years, key=f'{title}_year')
-    selected_month = st.selectbox('월을 선택하세요:', months, key=f'{title}_month')
+    with st.container(border=True):
+        selected_year = st.selectbox('연도를 선택하세요:', years, key=f'{title}_year')
+        selected_month = st.selectbox('월을 선택하세요:', months, key=f'{title}_month')
 
     # 선택된 연도와 월에 따라 데이터 필터링
     filtered_data = df[(df['연도'] == selected_year) & (df['월'] == selected_month)]

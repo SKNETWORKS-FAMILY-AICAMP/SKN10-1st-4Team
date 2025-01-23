@@ -1,21 +1,30 @@
 import streamlit as st
-from streamlit_elements import elements, dashboard, mui, editor, media, lazy, sync, nivo
 import pandas as pd
-import plotly.express as px
-
+import plotly.graph_objects as go
 
 st.title("📊 지역별 자동차 등록 현황")
 st.divider()
 st.header('시도별 자동차 등록 수 현황')
 
 # 데이터 생성
-data = {
-    "연도": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
-    "Total 등록대수": [1887, 1940, 2012, 2099, 2180, 2253, 2320, 2368, 2437, 2491, 2550]
-}
+
+
+# CSV 파일 경로를 지정합니다.
+file_path = 'path/to/your/file.csv'
+
+# pandas를 사용해 CSV 파일을 DataFrame으로 읽어옵니다.
+df = pd.read_csv(file_path)
+
+# DataFrame 확인
+print(df.head())
+
 
 # DataFrame 생성
-df = pd.DataFrame(data)
+df = pd.DataFrame(sql)
+
+# 연도별 차량 증가 수 계산
+df['증가수'] = df['Total 등록대수'].diff().fillna(0).astype(int)
+
 with st.container(height=100, border=1, key=None):
     col1, col2 = st.columns(2)
     with col1:
@@ -32,6 +41,7 @@ with st.container(height=100, border=1, key=None):
             options=df["연도"].tolist(),
             index=len(df["연도"]) - 1  # 기본값: 마지막 연도
         )
+
 with st.container(height=550, border=1, key=None):
     # 선택된 기간에 따라 데이터 필터링
     if start_year > end_year:
@@ -39,31 +49,46 @@ with st.container(height=550, border=1, key=None):
     else:
         filtered_df = df[(df["연도"] >= start_year) & (df["연도"] <= end_year)] 
         st.subheader(f"선택된 기간: {start_year}년 ~ {end_year}년")
-        
-        # 필터링된 데이터 표시
-        # st.write(filtered_df)
-    
-    df = pd.DataFrame(data)
 
-    # Plotly로 막대 그래프 생성
-    fig = px.bar(
-        df,
-        x="연도",
-        y="Total 등록대수",
-        title="예쁘게 꾸민 Plotly 막대 그래프",
-        color="Total 등록대수",  # 색상을 등록대수 값에 따라 다르게 설정
-        color_continuous_scale="Blues",  # 색상 팔레트
-        template="simple_white"  # 배경 템플릿
-    )
+        # 이중 y축을 갖는 복합 그래프 생성
+        fig = go.Figure()
 
-    # 그래프 스타일 추가
-    fig.update_layout(
-        title_font_size=20,
-        xaxis_title="연도",
-        yaxis_title="등록대수",
-        xaxis=dict(tickangle=-45),  # x축 레이블 기울이기
-        yaxis=dict(showgrid=True, gridcolor="lightgrey"),  # y축 그리드 설정
-    )
+        # 막대 그래프 추가 (등록대수)
+        fig.add_trace(
+            go.Bar(
+                x=filtered_df["연도"],
+                y=filtered_df["Total 등록대수"],
+                name="Total 등록대수",
+                marker_color="#FCC6FF"
+            )
+        )
 
-    # Streamlit에 Plotly 그래프 표시
-    st.plotly_chart(fig)
+        # 선 그래프 추가 (증가수)
+        fig.add_trace(
+            go.Scatter(
+                x=filtered_df["연도"],
+                y=filtered_df["증가수"],
+                name="증가수",
+                yaxis="y2",
+                mode='lines+markers',
+                line=dict(color='#FF8383', width=3),
+                marker=dict(size=8)
+            )
+        )
+
+        # 레이아웃 업데이트: 이중 y축 설정
+        fig.update_layout(
+            xaxis=dict(title="연도"),
+            yaxis=dict(title="Total 등록대수"),
+            yaxis2=dict(
+                title="증가수 (천 단위)",
+                overlaying="y",
+                side="right",
+                tickformat=",d"
+            ),
+            xaxis_tickangle=-45,
+            template="simple_white"
+        )
+
+        # Streamlit에 Plotly 그래프 표시
+        st.plotly_chart(fig)

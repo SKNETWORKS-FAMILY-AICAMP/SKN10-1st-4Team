@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 
+# 제목 및 탭 구성
 st.title("❓ 주요 3개 기업 차량 구매 FAQ")
 st.divider()
 
@@ -123,3 +124,19 @@ with tab3:
         answer = item.get("answer", "답변 없음")
         with st.expander(f"❓ {question}"):
             st.write(answer)
+
+    # 페이지 이동 버튼
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col1:
+        if st.button("⬅️ 이전", key="prev"):
+            if st.session_state.current_page > 0:
+                st.session_state.current_page -= 1
+    
+    with col2:
+        st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
+
+    with col3:
+        if st.button("다음 ➡️", key="next"):
+            if st.session_state.current_page < total_pages - 1:
+                st.session_state.current_page += 1

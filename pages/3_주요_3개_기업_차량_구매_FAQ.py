@@ -82,12 +82,12 @@ with tab2:
     with button_container:
         col1, col2, col3 = st.columns([1, 6, 1])
         with col1:
-            if page > 1 and st.button("이전", key="prev_page"):
+            if page > 1 and st.button("이전", key="prev_page_tab2"):
                 change_page(page - 1)
         with col2:
             st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
         with col3:
-            if page < total_pages and st.button("다음", key="next_page"):
+            if page < total_pages and st.button("다음", key="next_page_tab2"):
                 change_page(page + 1)
 
 

@@ -93,8 +93,7 @@ with tab2:
 
 with tab3:
     st.write("제네시스 차량 구매 FAQ")
-
-
+    
     # JSON 파일 로드
     file_path = 'genesis_faq.json'
     try:
@@ -104,36 +103,36 @@ with tab3:
         st.error(f"FAQ 데이터를 로드하는 중 오류 발생: {e}")
         faq_data = []
 
-     # 검색 기능
-    search_query = st.text_input("검색어를 입력하세요:")
-    if search_query:
-        faq_data = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
-
     # 세션 상태 초기화
-    if 'current_page' not in st.session_state:
-        st.session_state.current_page = 0
+    if 'page' not in st.session_state:
+        st.session_state.page = 1
 
     # FAQ 데이터 확인 및 예외 처리
     if len(faq_data) == 0:
         st.write("FAQ 데이터가 없습니다.")
         st.stop()
 
+    # 검색 기능
+    search_query = st.text_input("검색어를 입력하세요:")
+    if search_query:
+        filtered_data  = [item for item in faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
+    else:
+        filtered_data = faq_data
+
+    # 검색 결과가 없을 경우 메시지 출력
+    if len(filtered_data) == 0:
+        st.write("검색 결과가 없습니다.")
+        st.stop()
+
     # 한 페이지에 표시할 FAQ 수와 페이지 계산
     faq_per_page = 5
-    total_pages = (len(faq_data) - 1) // faq_per_page + 1
-
-    # 페이지 번호 선택
-    if 'page' not in st.session_state or st.session_state.page > total_pages:
-        st.session_state.page = 1
-
-    def change_page(page):
-        st.session_state.page = page
+    total_pages = (len(filtered_data) - 1) // faq_per_page + 1
 
     # 현재 페이지에 해당하는 FAQ 가져오기
     page = st.session_state.page
-    start_index = st.session_state.current_page * faq_per_page
+    start_index = (page - 1) * faq_per_page
     end_index = start_index + faq_per_page
-    current_faqs = faq_data[start_index:end_index]
+    current_faqs = filtered_data[start_index:end_index]
 
     # 현재 페이지의 FAQ 출력
     for item in current_faqs:
@@ -141,18 +140,17 @@ with tab3:
         answer = item.get("answer", "답변 없음")
         with st.expander(f"❓ {question}"):
             st.write(answer)
-
-    page_numbers = [i for i in range(1, total_pages + 1)]
     
     # 이전, 다음 버튼을 양쪽 끝에 배치하고 가운데에 현재 페이지 표시
     button_container = st.container()
+
     with button_container:
         col1, col2, col3 = st.columns([1, 6, 1])
         with col1:
             if page > 1 and st.button("이전", key="prev_page"):
-                change_page(page - 1)
+                st.session_state.page = page - 1
         with col2:
             st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
         with col3:
             if page < total_pages and st.button("다음", key="next_page"):
-                change_page(page + 1)
+                st.session_state.page = page + 1

@@ -172,13 +172,10 @@ with tab2:
 with tab3:
     st.write("제네시스 차량 구매 FAQ")
     
-<<<<<<< HEAD
-=======
     file_path = 'data/genesis_faq.json' # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
->>>>>>> origin/feature-yeseulnim
     # JSON 파일 로드
     file_path = 'data\genesis_faq.json'
     try:

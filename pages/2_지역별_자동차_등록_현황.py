@@ -6,6 +6,7 @@ import plotly.express as px
 st.title("📊 지역별 자동차 등록 현황")
 st.divider()
 
+# Database 연결결
 connection = pymysql.connect(
     host = "localhost",
     user = "SKN10_4team",
@@ -30,11 +31,10 @@ selected_year = st.selectbox("Year", year_list, index=year_list.index('2022'))
 st.divider()
 
 car_data = f"""
-SELECT City.CityName, Car.CarCount
+SELECT City.CityName, Car.CarCount, Car.CityID
 FROM Car
 JOIN City ON Car.CityID = City.CityID
 WHERE Car.Year = {selected_year}
-ORDER BY City.CityID
 ;
 """
 cursor.execute(car_data)
@@ -42,15 +42,11 @@ result = cursor.fetchall()
 
 df = pd.DataFrame(result)
 
-city_order = df['CityName'].tolist()
-
 fig = px.pie(df, names = "CityName", values="CarCount",
-             hover_data={'CarCount': True}, labels={'CarCount': 'CarCount'},
-             category_orders={'CityName': city_order})
-fig.update_traces(textposition='outside', textinfo='label+value+percent', textfont_color="black",
-                  hole=.4, direction='counterclockwise', rotation=-30)
+             hover_data={'CarCount': True}, labels={'CarCount': 'CarCount'})
+fig.update_traces(textposition='outside', textinfo='label+value+percent', textfont_color="black", hole=.4,
+                  direction='counterclockwise', rotation=-30,
+                  hovertemplate='%{names}<br>%{values} (%{percent})')
 fig.add_annotation(dict(text=f"{selected_year}", x=0.5, y=0.5, font_color="black", font_size=25, showarrow=False))
-fig.update_layout(
-    height=600
-)
+fig.update_layout(height=600)
 st.plotly_chart(fig)

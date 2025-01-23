@@ -40,7 +40,10 @@ def get_faq_data():
     # FAQ 항목들 찾기
     faq_items = driver.find_elements(By.CSS_SELECTOR, ".cmp-accordion__button")
 
-    for item in faq_items:
+    for i in range(len(faq_items)):
+        # 각 질문을 클릭하기 전에 요소를 다시 찾음
+        faq_items = driver.find_elements(By.CSS_SELECTOR, ".cmp-accordion__button")
+        item = faq_items[i]
         question = item.find_element(By.CSS_SELECTOR, ".cmp-accordion__title").text
         item.click()  # 질문 클릭하여 답변 표시
 
@@ -54,11 +57,26 @@ def get_faq_data():
         links = []
         link_elements = answer_element.find_elements(By.TAG_NAME, "a")
         for link in link_elements:
-            href = link.get_attribute("href")
-            text = link.text
-            links.append({"text": text, "href": href})
+            links.append({
+                "href": link.get_attribute("href"),
+                "text": link.text
+            })
 
-        faq_data.append({"question": question, "answer": answer, "links": links})
+        # 이미지 링크 정보 가져오기
+        images = []
+        image_elements = answer_element.find_elements(By.TAG_NAME, "img")
+        for img in image_elements:
+            images.append({
+                "src": img.get_attribute("src"),
+                "alt": img.get_attribute("alt")
+            })
+
+        faq_data.append({
+            "question": question,
+            "answer": answer,
+            "links": links,
+            "images": images
+        })
 
     # 스크롤을 맨 위로 올리기
     driver.execute_script("window.scrollTo(0, 0);")
@@ -101,4 +119,5 @@ with open("kia_faq.json", "w", encoding="utf-8") as json_file:
 for faq in faq_data:
     print(f"Question: {faq['question']}")
     print(f"Answer: {faq['answer']}")
-    print(f"Links: {faq['links']}\n")
+    print(f"Links: {faq['links']}")
+    print(f"Images: {faq['images']}\n")

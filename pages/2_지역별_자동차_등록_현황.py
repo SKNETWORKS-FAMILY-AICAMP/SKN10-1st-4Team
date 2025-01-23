@@ -26,15 +26,16 @@ cursor.execute(year_data)
 years = cursor.fetchall()
 year_list = [year['year'] for year in years]
 
-selected_year = st.selectbox("Year", year_list, index=year_list.index('2022'))
-
-st.divider()
+with st.container(border=True):
+    st.subheader("Year")
+    selected_year = st.selectbox("", year_list, index=year_list.index('2022'), label_visibility="collapsed")
 
 car_data = f"""
 SELECT City.CityName, Car.CarCount, Car.CityID
 FROM Car
 JOIN City ON Car.CityID = City.CityID
 WHERE Car.Year = {selected_year}
+ORDER BY City.CityID
 ;
 """
 cursor.execute(car_data)

@@ -121,9 +121,6 @@ with tab3:
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
-<<<<<<< HEAD
-    for item in faq_data:
-=======
     # JSON 파일 로드
     file_path = 'data\genesis_faq.json'
     try:
@@ -153,7 +150,6 @@ with tab3:
 
     # 현재 페이지의 FAQ 출력
     for item in current_faqs:
->>>>>>> 4fe5f21acedc124b0090992ff7ffbf60997e7a1d
         question = item.get("question", "질문 없음")
         answer = item.get("answer", "답변 없음")
         with st.expander(f"❓ {question}"):

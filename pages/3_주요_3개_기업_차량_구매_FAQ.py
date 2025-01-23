@@ -10,7 +10,7 @@ tab1, tab2, tab3 = st.tabs(['현대', '기아', '제네시스'])
 with tab1:
     st.write("현대 차량 구매 FAQ")
 
-    file_path = 'data/hyundai_qna.json'  # 경로설정
+    file_path = 'data\hyundai_qna.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
@@ -62,7 +62,7 @@ with tab1:
 with tab2:
     st.write("기아 차량 구매 FAQ")
 
-    file_path = 'kia_faq.json'  # 경로설정
+    file_path = 'data\kia_faq.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
@@ -116,7 +116,7 @@ with tab3:
     st.write("제네시스 차량 구매 FAQ")
 
     # JSON 파일 로드
-    file_path = 'genesis_faq.json'
+    file_path = 'data\genesis_faq.json'
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             faq_data = json.load(file)

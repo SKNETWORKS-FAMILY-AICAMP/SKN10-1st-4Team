@@ -4,7 +4,6 @@ import plotly.graph_objects as go
 
 st.title("📊 지역별 자동차 등록 현황")
 st.divider()
-st.header('시도별 자동차 등록 수 현황')
 
 # 데이터 생성
 data = {

@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import pymysql
 
-st.title("📊 지역별 자동차 등록 현황")
+st.title("📊 연도별 자동차 등록 현황")
 st.divider()
 
 # 데이터베이스 연결 설정

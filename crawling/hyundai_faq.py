@@ -20,7 +20,6 @@ qna_list = []
 for page_id in range(4):
     for question_id in range(1,11):
         try:
-            print(question_id)
             #엘리먼트 찾기
             faq_list = driver.find_element(By.CSS_SELECTOR, "div[data-v-28d34f54].list-wrap")
 

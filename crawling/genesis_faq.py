@@ -15,8 +15,8 @@ driver.get(url)
 html_source = driver.page_source
 
 # HTML 파일로 저장
-with open("genesis_faq.html", "w", encoding="utf-8") as file:
-    file.write(html_source)
+#with open("genesis_faq.html", "w", encoding="utf-8") as file:
+#    file.write(html_source)
 
 # 드라이버 종료
 driver.quit()

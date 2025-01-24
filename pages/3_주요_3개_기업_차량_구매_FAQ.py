@@ -10,9 +10,9 @@ with tab1:
     st.write("현대 차량 구매 FAQ")
 
 with tab2:
-    st.write("기아 차량 구매 FAQ")
+    st.image("images/kia.jpg")
 
-    file_path = 'kia_faq.json'  # 경로설정
+    file_path = 'data\kia_faq.json'  # 경로설정
     with open(file_path, 'r', encoding='utf-8') as file:
         faq_data = json.load(file)
 
@@ -82,12 +82,12 @@ with tab2:
     with button_container:
         col1, col2, col3 = st.columns([1, 6, 1])
         with col1:
-            if page > 1 and st.button("이전", key="prev_page"):
+            if page > 1 and st.button("이전", key="prev_page_tab2"):
                 change_page(page - 1)
         with col2:
             st.markdown(f"<div style='text-align: center;'>페이지 {page} / {total_pages}</div>", unsafe_allow_html=True)
         with col3:
-            if page < total_pages and st.button("다음", key="next_page"):
+            if page < total_pages and st.button("다음", key="next_page_tab2"):
                 change_page(page + 1)
 
 

@@ -206,9 +206,29 @@ with tab3:
         st.write("FAQ 데이터가 없습니다.")
         #st.stop()
 
+    # 검색 기능 스타일링
+    search_style = """
+        <style>
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        </style>
+    """
+    st.markdown(search_style, unsafe_allow_html=True)
+
     # 검색 기능
     def search():
         st.session_state.search_query = st.session_state.search_input
+        st.session_state.page = 1 
 
     search_query = st.text_input("", key="j_search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
     if search_query:
@@ -222,7 +242,7 @@ with tab3:
         st.stop()
 
     # 한 페이지에 표시할 FAQ 수와 페이지 계산
-    faq_per_page = 5
+    faq_per_page = 10
     total_pages = (len(filtered_data) - 1) // faq_per_page + 1
 
     # 현재 페이지에 해당하는 FAQ 가져오기

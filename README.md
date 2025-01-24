@@ -48,10 +48,15 @@
  1. **데이터 수집 및 가공**
 <br/>
 
+<<<<<<< HEAD
     <b>[지표누리](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>에서 제공하는 연도별 및 지역별 자동차 등록 현황 데이터를 수집하여 목적에 맞게 가공한 후, 데이터베이스에 저장한다.
     <br/>
 
     다나와의 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지에서 제공하는 브랜드별 자동차 판매 실적을 수집하여 목적에 맞게 가공한 후 CSV 파일로 저장한다
+=======
+2. **데이터 시각화**<br/>
+- 수집한 데이터를 Python의 **Plotly**, **MatPlotLib** 및 **Folium** 라이브러리를 통해 시각화한다.
+>>>>>>> origin/feature-yeseulnim
 <br/>
 
 2. **데이터 시각화**
@@ -70,7 +75,7 @@
 ### 프로젝트 기대 효과
 <br/>
 
-1. **연도별 및 지역별 자동차 등록 현황의 시각적 자료**를 제공하여 데이터 직관적으로 파악할 수 있다.
+1. **연도별 및 지역별 자동차 등록 현황의 시각적 자료**를 제공하여 데이터를 직관적으로 파악할 수 있다.
 <br/>
 
 2. **교통 및 환경 정책 수립**을 위한 기초 데이터를 제공한다.
@@ -83,9 +88,13 @@
 ## 📌 설치/사용 방법
 <br/>
 
+<<<<<<< HEAD
 ### 1. GitHub에서 Repository Clone
 <br/>
 
+=======
+### 1. GitHub에서 Repository 클론
+>>>>>>> origin/feature-yeseulnim
 ```python
     git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-4Team.git
 ```
@@ -95,13 +104,20 @@
 ```python
     pip install -r requirements.txt
 ```
+### 3. 데이터베이스 구축
+DBeaver 실행 후, 계정생성 권한 있는 계정에서 /sql/create_tables.sql 파일의 코드 실행
 
+<<<<<<< HEAD
 ### 3. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
 <br/>
 
 ※ 웹 크롤링 결과물은 data 폴더에 json 파일로 저장되어 있으므로, 별도의 크롤링 없이 바로 실행이 가능하다. 다만, 신규 데이터 확인을 위해 웹 크롤링이 필요한 경우 아래 코드를 사용할 수 있다.
 <br/>
 
+=======
+### 4. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
+※ 웹 크롤링 결과물은 data 폴더에 json으로 저장되어 있으므로, 별도 크롤링 없이 바로 실행이 가능함. 다만 신규 데이터 확인을 위해 웹크롤링이 필요한 경우 아래 코드를 사용할 수 있음.
+>>>>>>> origin/feature-yeseulnim
 ```python
     python crawling/kia_faq.py
 ```
@@ -114,6 +130,7 @@
 ```python
     python crawling/danawa.py
 ```
+<<<<<<< HEAD
 ```python
     python genesis_faq.py
 ```
@@ -125,6 +142,9 @@
 ### 4. 서비스 실행
 <br/>
 
+=======
+### 5. 서비스 실행
+>>>>>>> origin/feature-yeseulnim
 ```python
     streamlit run 1_연도별_자동차_등록_현황.py
 ```
@@ -254,6 +274,7 @@
 <br/>
 
 ## 개발과정에서 발생한 이슈 및 해결방법
+<<<<<<< HEAD
 <br/>
 
 ### 1. SQL DB 구축
@@ -277,6 +298,17 @@
 - AI의 디버깅 보조로 해결함
 <br/>
 <br/>
+=======
+- **SQL DB 구축**
+    - 문제 : MySQL DB는 깃헙으로 동기화되지 않고 각 인원이 각자 구축해야 했기에 그 과정에서 시행착오가 있었음. 
+    - 해결 : 실수방지를 위해 최종 코드에서는 DB및 테이블 생성 SQL코드를 별도파일로 두고, 테이블 내용 생성은 함수로 만들어 자동 실행되도록 함.
+- **복잡한 SQL 저장 구조**
+    - 문제 : 최초 기획한 ERD 구조에는 FAQ가 포함되어 있었으나, 실제 구현시 FAQ를 별도 JSON 파일에 담고 그를 MySQL 테이블로 만든뒤 이를 불러오는 과정이 비효율적이라 판단되었음. 
+    - 해결 : ERD구조를 수정하여 FAQ를 ERD에서 빼고, FAQ페이지의 내용은 JSON파일에서 바로 불러오기로 함.
+- **기능구현 완료후 오류 발생**
+    - 문제 : '현대차 FAQ' 페이지에서 검색기능 이용시, 검색결과가 없을 경우, '기아차 FAQ' 등 다른 탭으로 이동하면 탭의 내용이 나타나지 않는 버그 발생
+    - 해결 : AI의 디버깅 보조를 이용, 코드를 수정하여 해결함.
+>>>>>>> origin/feature-yeseulnim
 
 ## 팀원별 느낀점
 <br/>

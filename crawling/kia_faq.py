@@ -112,16 +112,14 @@ while current_page < 4:
 driver.quit()
 
 # 결과를 JSON 파일로 저장
-<<<<<<< HEAD
 with open("/data/kia_faq.json", "w", encoding="utf-8") as json_file:
-=======
-with open("data\kia_faq.json", "w", encoding="utf-8") as json_file:
->>>>>>> 09ae3553d1dc6404737e4f1ea5ccdff5d1ecabfb
     json.dump(faq_data, json_file, ensure_ascii=False, indent=4)
 
 # 결과 출력
+'''
 for faq in faq_data:
     print(f"Question: {faq['question']}")
     print(f"Answer: {faq['answer']}")
     print(f"Links: {faq['links']}")
     print(f"Images: {faq['images']}\n")
+'''

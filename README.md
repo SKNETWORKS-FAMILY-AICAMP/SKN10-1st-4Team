@@ -10,7 +10,7 @@
 
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 팀장<br/>지역별 자동차 등록 현황<br/>(그래프) | ERD 설계<br/>DB 구현 | ERD 설계<br/>현대자동차 FAQ | 화면 설계<br/>제네시스 FAQ | 라이브러리 조사br/>연도별 자동차 등록 현황 | 화면 설계<br/>기아자동차 FAQ<br/>지역별 자동차 등록 현황<br/>(지도)<br/>브랜드별 자동차 판매 현황
+| 팀장<br/>지역별 자동차 등록 현황<br/>(그래프) | ERD 설계<br/>DB 구현 | ERD 설계<br/>현대자동차 FAQ | 화면 설계<br/>제네시스 FAQ | 라이브러리 조사<br/>연도별 자동차 등록 현황 | 화면 설계<br/>기아자동차 FAQ<br/>지역별 자동차 등록 현황<br/>(지도)<br/>브랜드별 자동차 판매 현황
 | [@INe](https://github.com/INe904) | [@kkminhye](https://github.com/kkminhye) | [@yeseulnim](https://github.com/yeseulnim) | [@sinminju](https://github.com/sinminju) | [@redwin02](https://github.com/redwin-02) | [@HIHO9999](https://github.com/HIHO999) |
 <br/>
 

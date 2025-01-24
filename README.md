@@ -10,11 +10,7 @@
 
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-<<<<<<< HEAD
-| 팀장 | 데이터 수집 및 저장 | 데이터 수집 및 저장 | 화면 설계 | 라이브러리 조사 | 화면 설계
-=======
 | - 팀장<br/>- 지역별 자동차 등록 현황<br/>(그래프) | - ERD 설계<br/>- DB 구현 | - ERD 설계<br/>- 현대자동차 FAQ | - 화면 설계<br/>- 제네시스 FAQ | - 라이브러리 조사<br/>- 연도별 자동차 등록 현황 | - 화면 설계<br/>- 기아자동차 FAQ<br/>- 지역별 자동차 등록 현황<br/>(지도)<br/>- 브랜드별 자동차 판매 현황
->>>>>>> origin/develop
 | [@INe](https://github.com/INe904) | [@kkminhye](https://github.com/kkminhye) | [@yeseulnim](https://github.com/yeseulnim) | [@sinminju](https://github.com/sinminju) | [@redwin02](https://github.com/redwin-02) | [@HIHO9999](https://github.com/HIHO999) |
 <br/>
 
@@ -31,15 +27,10 @@
 ### 프로젝트 목적
 <br/>
 
-<<<<<<< HEAD
-전국 자동차 등록 현황을 연도별 및 지역별로 분석하여, **자동차 증가 추세와 지역별 특성을 파악**한다.<br/>
-이를 통해 **교통 정책 수립 및 지역 발전 전략**에 기여할 수 있는 정보를 제공한다.
-=======
 1. 전국 자동차 등록 현황을 연도별 및 지역별로 분석하여, **자동차 증가 추세와 지역별 특성을 파악**한다. 이를 통해 **교통 정책 수립 및 지역 발전 전략**에 기여할 수 있는 정보를 제공한다.
 <br/>
 
 2. 국내 브랜드별 자동차 구매통계 및 3대 자동차 기업의 차량구매 관련 FAQ 정보를 한 곳에 모아, **자동차 구매 예정 소비자에게 필요한 정보**를 제공한다.
->>>>>>> origin/develop
 <br/>
 <br/>
 
@@ -49,33 +40,15 @@
 1. 자동차 등록 현황은 도시 교통 문제, 환경 정책, 도로 인프라 계획 등과 밀접하게 연관되어 있다.
 <br/>
 
-<<<<<<< HEAD
-2. 연도별 및 지역별 자동차 등록 현황 데이터를 시각화하여, 공공 및 민간 부분에서 데이터를 기반 정책 결정을 지원한다.
-<br/>
-=======
 2. 연도별 및 지역별 자동차 등록 현황 데이터를 시각화하여, 공공 및 민간 부분에서 데이터 기반 정책 결정을 지원한다.
 <br/>
 
 3. 자동차 구매를 고려하는 소비자는 브랜드별 차량 등록 현황과 차량 구매 관련 정보를 한눈에 확인하기 어려운 경우가 많다. 국내 브랜드별 자동차 구매 통계와 주요 자동차 기업의 FAQ 정보를 통합 제공함으로써, 소비자들이 보다 신속하고 정확한 의사 결정을 할 수 있도록 돕는다.
->>>>>>> origin/develop
 <br/>
 
 ### 프로젝트 내용
 <br/>
 
-<<<<<<< HEAD
- 1. **데이터 수집 및 가공**<br/>
-- <b>[지표누리](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>에서 제공하는 연도별 및 지역별 자동차 등록 현황 데이터를 수집하여 목적에 맞게 가공한 후, 데이터베이스에 저장한다.
-<br/>
-
-2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Matplotlib** 라이브러리 통해 시각화한다.
-<br/>
-
-3. **주요 3개 자동차 회사 FAQ**<br/>
-- 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 정리하고, 이를 조회할 수 있게 한다.
-<br/>
-=======
  1. **데이터 수집 및 가공**
 <br/>
 
@@ -99,25 +72,17 @@
 <br/>
 
 - 크롤링한 주요 자동차 브랜드의 FAQ 내용을 한곳에 모아, 검색 기능과 함께 제공한다.
->>>>>>> origin/develop
 <br/>
 
 ### 프로젝트 기대 효과
 <br/>
 
-<<<<<<< HEAD
-1. **연도별 및 지역별 자동차 등록 현황의 시각적 자료**를 제공하여 데이터 직관적으로 파악할 수 있다.
-=======
 1. **연도별 및 지역별 자동차 등록 현황의 시각적 자료**를 제공하여 데이터를 직관적으로 파악할 수 있다.
->>>>>>> origin/develop
 <br/>
 
 2. **교통 및 환경 정책 수립**을 위한 기초 데이터를 제공한다.
 <br/>
 
-<<<<<<< HEAD
-3. **기업 FAQ 조회 시스템**을 통해 소비자의 정보 접근성을 높인다.
-=======
 3. **브랜드별 차량 판매량** 및 **기업 FAQ 조회 시스템**을 통해 소비자의 정보 접근성을 높인다.
 <br/>
 <br/>
@@ -171,7 +136,6 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 ```python
     streamlit run 1_연도별_자동차_등록_현황.py
 ```
->>>>>>> origin/develop
 <br/>
 <br/>
 
@@ -179,37 +143,25 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 <br/>
 
 ### 화면 설계
-<<<<<<< HEAD
-=======
 <br/>
->>>>>>> origin/develop
 
 ![](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 <br/>
 
 ### 데이터 가공 및 처리
-<<<<<<< HEAD
-=======
 <br/>
->>>>>>> origin/develop
 
 ![](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) &nbsp; ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white)
 <br/>
 
 ### 화면 구현
-<<<<<<< HEAD
-=======
 <br/>
->>>>>>> origin/develop
 
 ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white) &nbsp; ![](https://img.shields.io/badge/streamlit-FF0000?style=for-the-badge&logo=streamlit&logoColor=white)
 <br/>
 
 ### 버전 관리 및 협업
-<<<<<<< HEAD
-=======
 <br/>
->>>>>>> origin/develop
 
 ![](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=github&logoColor=white)
 <br/>
@@ -218,12 +170,6 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 ## 💻 화면 설계
 <br/>
 
-<<<<<<< HEAD
-## 💻 데이터 가공 및 처리
-<br/>
-
-## 💻 화면 구현
-=======
 ### 0. 메뉴
 <br/>
 
@@ -287,13 +233,10 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 
 - 자료 가공 : Selenium으로 웹크롤링 -> CSV로 저장
 <br/>
->>>>>>> origin/develop
 <br/>
 
 ## 📌 프로젝트 최종 결과
 <br/>
-<<<<<<< HEAD
-=======
 
 ### 1. 연도별 자동차 등록 현황
 <br/>
@@ -415,4 +358,3 @@ AI의 디버깅 보조를 이용, 코드를 수정하여 해결함.
 
 저는 사람이 아닙니다. 몽키입니다. 아닙니다. 코드도 못치니 그냥 몽키입니다. 열심히 배워서 코드몽키라도 될 수 있도록 노력하겠습니다. 그리고 능력자이신 팀원분들을 만나 너무 좋았습니다. 몽키 한 마리 만나서 고생한 팀원들에게 너무 고맙고 다음 프로젝트때는 버스 타기실 기도하겠습니다. 
 <br/>
->>>>>>> origin/develop

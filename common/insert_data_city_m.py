@@ -11,14 +11,14 @@ db_config = {
 }
 
 # CSV 파일 경로 설정
-csv_file_path = os.path.join("data", "Car.csv")
+csv_file_path = os.path.join("data", "City_m.csv")
 
 # MySQL 연결
 connection = pymysql.connect(**db_config)
 cursor = connection.cursor()
 
 # 테이블 이름
-table_name = "Car"
+table_name = "City_m"
 
 # CSV 파일 읽고 데이터 삽입
 try:
@@ -27,11 +27,11 @@ try:
         headers = next(csv_reader)  # 헤더 스킵
         
         # INSERT 쿼리 생성
-        query = f"INSERT INTO {table_name} (Year, CityID, CarCount) VALUES (%s, %s, %s)"
+        query = f"INSERT INTO {table_name} (CityID, CityName, CityName2, Latitude, Longitude) VALUES (%s, %s, %s, %s, %s)"
         
         # 데이터 삽입
         for row in csv_reader:
-            mapped_row = (row[0], row[2], row[3])  # 순서 매핑
+            mapped_row = (row[0], row[1], row[2], row[3], row[4])  # 순서 매핑
             cursor.execute(query, mapped_row)
     
     # 변경사항 커밋

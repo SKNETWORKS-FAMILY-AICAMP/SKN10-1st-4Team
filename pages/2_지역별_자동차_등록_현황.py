@@ -5,13 +5,8 @@ import plotly.express as px
 import folium
 import random
 from streamlit_folium import folium_static
-from common.insert_data import insert_data
-from common.insert_data_city import insert_data_city
 
 st.set_page_config(layout="wide")
-
-insert_data()
-insert_data_city()
 
 st.title("📊 지역별 자동차 등록 현황")
 

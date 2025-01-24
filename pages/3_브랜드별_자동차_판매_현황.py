@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 
-st.title("📊 브랜드별 차량 판매 현황")
+st.title("📊 브랜드별 자동차 판매 현황")
 
 # 한글 폰트 설정
 font_path = 'C:/Windows/Fonts/malgun.ttf'  # Windows의 경우

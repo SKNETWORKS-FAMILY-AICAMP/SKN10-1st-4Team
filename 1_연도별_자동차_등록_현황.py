@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import pymysql
+from common.insert_data import insert_data
+from common.insert_data_city import insert_data_city
+
+insert_data()
+insert_data_city()
 
 st.title("📊 연도별 자동차 등록 현황")
 st.divider()

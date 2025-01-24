@@ -130,7 +130,7 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 ```
 <br/>
 
-### 4. 서비스 실행
+### 5. 서비스 실행
 <br/>
 
 ```python

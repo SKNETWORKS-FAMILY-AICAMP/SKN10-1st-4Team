@@ -27,7 +27,9 @@
 ### 프로젝트 목적
 <br/>
 
-전국 자동차 등록 현황을 연도별 및 지역별로 분석하여, **자동차 증가 추세와 지역별 특성을 파악**한다.<br/>
+전국 자동차 등록 현황을 연도별 및 지역별로 분석하여, **자동차 증가 추세와 지역별 특성을 파악**한다.
+<br/>
+
 이를 통해 **교통 정책 수립 및 지역 발전 전략**에 기여할 수 있는 정보를 제공한다.
 <br/>
 <br/>
@@ -89,12 +91,16 @@
 ```python
     git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-4Team.git
 ```
+<br/>
+
 ### 2. 라이브러리 설치
 <br/>
 
 ```python
     pip install -r requirements.txt
 ```
+<br/>
+
 ### 3. 데이터베이스 구축
 DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sql 파일의 코드 실행
 <br/>
@@ -125,27 +131,31 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 ```python
     streamlit run 1_연도별_자동차_등록_현황.py
 ```
-
+<br/>
 
 ## 📌 기술 스택
 <br/>
 
 ### 화면 설계
+<br/>
 
 ![](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 <br/>
 
 ### 데이터 가공 및 처리
+<br/>
 
 ![](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) &nbsp; ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white)
 <br/>
 
 ### 화면 구현
+<br/>
 
 ![](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=white) &nbsp; ![](https://img.shields.io/badge/streamlit-FF0000?style=for-the-badge&logo=streamlit&logoColor=white)
 <br/>
 
 ### 버전 관리 및 협업
+<br/>
 
 ![](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=github&logoColor=white)
 <br/>
@@ -194,28 +204,28 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 1. **자동차 등록 현황**
 <br/>
 
-    자료 출처 : <b>[지표누리 자동차 등록 현황](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>
+- 자료 출처 : <b>[지표누리 자동차 등록 현황](https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1257)</b>
 <br/>
 
-    자료 가공 : 개별 Excel 파일 다운로드 -> CSV로 변경 -> MySQL 데이터베이스 테이블로 저장
+- 자료 가공 : 개별 Excel 파일 다운로드 -> CSV로 변경 -> MySQL 데이터베이스 테이블로 저장
 <br/>
 
 2. **주요 3개 기업 차량 구매 FAQ**
 <br/>
 
-     자료 출처 : 국내 3대 자동차 기업 (<b>[현대](https://www.hyundai.com/kr/ko/e/customer/center/faq)</b>, <b>[기아](https://www.kia.com/kr/customer-service/center/faq)</b>, <b>[제네시스](https://www.genesis.com/kr/ko/support/faq.html)</b>) 홈페이지 'FAQ' 중 '차량 구매' 항목
+- 자료 출처 : 국내 3대 자동차 기업 (<b>[현대](https://www.hyundai.com/kr/ko/e/customer/center/faq)</b>, <b>[기아](https://www.kia.com/kr/customer-service/center/faq)</b>, <b>[제네시스](https://www.genesis.com/kr/ko/support/faq.html)</b>) 홈페이지 'FAQ' 중 '차량 구매' 항목
 <br/>
 
-    자료 가공 : Selenium으로 웹크롤링 -> JSON으로 저장 
+- 자료 가공 : Selenium으로 웹크롤링 -> JSON으로 저장 
 <br/>
 
 3. **브랜드별 자동차 판매 실적**
 <br/>
 
-    자료 출처 : 다나와 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지
+- 자료 출처 : 다나와 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지
 <br/>
 
-    자료 가공 : Selenium으로 웹크롤링 -> CSV로 저장
+- 자료 가공 : Selenium으로 웹크롤링 -> CSV로 저장
 <br/>
 <br/>
 
@@ -263,6 +273,8 @@ MySQL DB는 깃헙으로 동기화되지 않고 각 인원이 각자 구축해�
 <br/>
 
 **해결**
+<br/>
+
 실수방지를 위해 최종 코드에서는 DB및 테이블 생성 SQL코드를 별도파일로 두고, 테이블 내용 생성은 함수로 만들어 자동 실행되도록 함.
 <br/>
 
@@ -271,10 +283,14 @@ MySQL DB는 깃헙으로 동기화되지 않고 각 인원이 각자 구축해�
 
 **문제**
 <br/>
+
 최초 기획한 ERD 구조에는 FAQ가 포함되어 있었으나, 실제 구현시 FAQ를 별도 JSON 파일에 담고 그를 MySQL 테이블로 만든뒤 이를 불러오는 과정이 비효율적이라 판단되었음. 
 <br/>
 
-해결 : ERD구조를 수정하여 FAQ를 ERD에서 빼고, FAQ페이지의 내용은 JSON파일에서 바로 불러오기로 함.
+**해결**
+<br/>
+
+ERD구조를 수정하여 FAQ를 ERD에서 빼고, FAQ페이지의 내용은 JSON파일에서 바로 불러오기로 함.
 <br/>
 
 ### 3. 기능구현 완료후 오류 발생

@@ -56,7 +56,7 @@
 - 국내 판매율이 가장 높은 주요 3개 자동차 회사(<b>[현대](https://www.hyundai.com/kr/ko/e/customer/center/faq)</b>, <b>[기아](https://www.kia.com/kr/customer-service/center/faq)</b>, <b>[제네시스](https://www.genesis.com/kr/ko/support/faq.html)</b>)의 차량 구매 FAQ를 Selenium을 이용하여 크롤링한 뒤 JSON 파일로 저장한다.
 <br/>
 
-- 다나와의 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지에서 제공하는 브랜드별 자동차 판매 실적을 수집하여 목적에 맞게 가공한 후 CSV 파일로 저장한다
+- 다나와의 <b>[자동차 판매 실적](https://auto.danawa.com/auto/?Work=record&pcUse=y)</b> 페이지에서 제공하는 브랜드별 자동차 판매 실적을 Selenium을 이용하여 크롤링한 뒤 CSV 파일로 저장한다.
 
 <br/>
 
@@ -69,6 +69,7 @@
 
 3. **FAQ 제공**
 <br/>
+
 - 크롤링한 주요 자동차 브랜드의 FAQ 내용을 한곳에 모아, 검색 기능과 함께 제공한다. 
 
 <br/>
@@ -110,7 +111,7 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 
 <br/>
 
-### 4. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
+### 4. (생략 가능) 정보 수집 - 웹 크롤링 코드 실행
 <br/>
 
 ※ 웹 크롤링 결과물은 data 폴더에 json 파일로 저장되어 있으므로, 별도의 크롤링 없이 바로 실행이 가능하다. 다만, 신규 데이터 확인을 위해 웹 크롤링이 필요한 경우 아래 코드를 사용할 수 있다.

@@ -51,7 +51,7 @@
 <br/>
 
 2. **데이터 시각화**<br/>
-- 수집한 데이터를 Python의 **Plotly**, **MatPlotLib** 및 **folium** 라이브러리를 통해 시각화한다.
+- 수집한 데이터를 Python의 **Plotly**, **MatPlotLib** 및 **Folium** 라이브러리를 통해 시각화한다.
 <br/>
 
 3. **국내 주요 3개 자동차 회사 FAQ**<br/>

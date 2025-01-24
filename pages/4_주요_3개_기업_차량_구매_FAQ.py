@@ -190,6 +190,7 @@ with tab3:
 
     # JSON 파일 로드
     file_path = 'data\genesis_faq.json'
+    
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             j_faq_data = json.load(file)

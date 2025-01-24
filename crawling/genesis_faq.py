@@ -34,5 +34,5 @@ for item in faq_items:
     faqs.append({'question': question, 'answer': answer})
 
 # 추출한 FAQ를 파일로 저장
-with open("genesis_faq.json", "w", encoding="utf-8") as file:
+with open("data\genesis_faq.json", "w", encoding="utf-8") as file:
     json.dump(faqs, file, ensure_ascii=False, indent=4)

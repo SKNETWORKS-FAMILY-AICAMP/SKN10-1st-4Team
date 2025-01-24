@@ -43,8 +43,8 @@ domestic_df = pd.DataFrame(domestic_data, columns=["연도", "월", "순위", "�
 foreign_df = pd.DataFrame(foreign_data, columns=["연도", "월", "순위", "브랜드", "판매량", "비율", "로고 이미지 링크"])
 
 # 데이터프레임 저장
-domestic_df.to_csv("국산차_순위_2021_2024.csv", index=False, encoding='utf-8-sig')
-foreign_df.to_csv("해외차_순위_2021_2024.csv", index=False, encoding='utf-8-sig')
+domestic_df.to_csv("data\국산차_순위_2021_2024.csv", index=False, encoding='utf-8-sig')
+foreign_df.to_csv("data\해외차_순위_2021_2024.csv", index=False, encoding='utf-8-sig')
 
 # 드라이버 종료
 driver.quit()

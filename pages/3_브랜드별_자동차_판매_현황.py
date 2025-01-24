@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 
+st.set_page_config(layout="centered")
+
 st.title("📊 브랜드별 자동차 판매 현황")
 
 # 한글 폰트 설정

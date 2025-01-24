@@ -72,7 +72,10 @@ else:
             filtered_data, 
             x="Year", 
             y="YearofCar", 
-            title="조회결과"
+            title="조회결과",
+            xaxis_title="연도", 
+            yaxis_title="차량 수 (만대)"
+
         )
 
         # 그래프 출력

@@ -88,10 +88,16 @@
 ### 3. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
 ※ 웹 크롤링 결과물은 data 폴더에 json으로 저장되어 있으므로, 별도 크롤링 없이 바로 실행이 가능함. 다만 신규 데이터 확인을 위해 웹크롤링이 필요한 경우 아래 코드를 사용할 수 있음.
 ```python
-    python kia_faq.py
+    python crawling/kia_faq.py
 ```
 ```python
-    python hyundai_faq.py
+    python crawling/hyundai_faq.py
+```
+```python
+    python crawling/genesis_faq.py
+```
+```python
+    python crawling/danawa.py
 ```
 ### 4. 서비스 실행
 ```python

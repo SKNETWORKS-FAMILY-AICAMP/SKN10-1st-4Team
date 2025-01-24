@@ -112,7 +112,7 @@ while current_page < 4:
 driver.quit()
 
 # 결과를 JSON 파일로 저장
-with open("kia_faq.json", "w", encoding="utf-8") as json_file:
+with open("/data/kia_faq.json", "w", encoding="utf-8") as json_file:
     json.dump(faq_data, json_file, ensure_ascii=False, indent=4)
 
 # 결과 출력

@@ -10,7 +10,7 @@
 
 | 좌민서 | 김민혜 | 박예슬 | 신민주 | 홍승표 | 황인호 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 팀장 / 지역별 자동차 등록 현황 (그래프) | ERD 설계 / DB 구현 | ERD 설계 / 현대자동차 FAQ | 화면 설계 / 제네시스 FAQ | 라이브러리 조사 / 연도별 자동차 등록 현황 | 화면 설계 / 기아자동차 FAQ / 지역별 자동차 등록 현황 (지도) / 브랜드별 자동차 판매 현황
+| 팀장<br/>지역별 자동차 등록 현황<br/>(그래프) | ERD 설계<br/>DB 구현 | ERD 설계<br/>현대자동차 FAQ | 화면 설계<br/>제네시스 FAQ | 라이브러리 조사br/>연도별 자동차 등록 현황 | 화면 설계<br/>기아자동차 FAQ<br/>지역별 자동차 등록 현황<br/>(지도)<br/>브랜드별 자동차 판매 현황
 | [@INe](https://github.com/INe904) | [@kkminhye](https://github.com/kkminhye) | [@yeseulnim](https://github.com/yeseulnim) | [@sinminju](https://github.com/sinminju) | [@redwin02](https://github.com/redwin-02) | [@HIHO9999](https://github.com/HIHO999) |
 <br/>
 
@@ -75,18 +75,25 @@
 ## 📌 설치/사용 방법
 <br/>
 
-### 1. GitHub에서 Repository 클론
+### 1. GitHub에서 Repository Clone
+<br/>
 
 ```python
     git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-4Team.git
 ```
 ### 2. 라이브러리 설치
+<br/>
+
 ```python
     pip install -r requirements.txt
 ```
 
 ### 3. (생략 가능) FAQ 정보 수집 - 웹 크롤링 코드 실행
-※ 웹 크롤링 결과물은 data 폴더에 json으로 저장되어 있으므로, 별도 크롤링 없이 바로 실행이 가능함. 다만 신규 데이터 확인을 위해 웹크롤링이 필요한 경우 아래 코드를 사용할 수 있음.
+<br/>
+
+※ 웹 크롤링 결과물은 data 폴더에 json 파일로 저장되어 있으므로, 별도의 크롤링 없이 바로 실행이 가능하다. 다만, 신규 데이터 확인을 위해 웹 크롤링이 필요한 경우 아래 코드를 사용할 수 있다.
+<br/>
+
 ```python
     python kia_faq.py
 ```
@@ -94,9 +101,16 @@
     python hyundai_faq.py
 ```
 ```python
-    python genesis_crawling.py
+    python genesis_faq.py
 ```
+```python
+    python danawa.py
+```
+<br/>
+
 ### 4. 서비스 실행
+<br/>
+
 ```python
     streamlit run 1_연도별_자동차_등록_현황.py
 ```
@@ -129,14 +143,30 @@
 ## 💻 화면 설계
 <br/>
 
-1. 연도별 자동차 등록 현황
-![](/images/figma1.png)
+### 0. 메뉴
+<br/>
 
-2. 지역별 자동차 등록 현황
-![](/images/figma2.png)
+![](images\menu_design.png)
+<br/>
+
+### 1. 연도별 자동차 등록 현황
+<br/>
+
+![](images\year_design.png)
+<br/>
+
+### 2. 지역별 자동차 등록 현황
+<br/>
+
+![](images\region_design.png)
+<br/>
 
 3. 주요 3개 기업 차량 구매 FAQ
-![](/images/figma3.png)
+<br/>
+
+![](images\faq_design.png)
+<br/>
+<br/>
 
 ## 💻 데이터 가공 및 처리
 <br/>

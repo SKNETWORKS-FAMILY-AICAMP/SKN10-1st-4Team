@@ -57,14 +57,14 @@
 2. **데이터 시각화**
 <br/>
 
-    수집한 데이터를 Python의 **Plotly**, **MatPlotLib** 및 **Folium** 라이브러리를 통해 시각화한다.
-    <br/>
+- 수집한 데이터를 Python의 **Plotly**, **MatPlotLib** 및 **Folium** 라이브러리를 통해 시각화한다.
+<br/>
 
 3. **국내 주요 3개 자동차 회사 FAQ**
 <br/>
 
-    국내 판매율이 가장 높은 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 수집 및 정리하고, 이를 조회할 수 있게 한다.
-    <br/>
+- 국내 판매율이 가장 높은 주요 3개 자동차 회사(현대, 기아, 제네시스)의 차량 구매 FAQ를 수집 및 정리하고, 이를 조회할 수 있게 한다.
+<br/>
 <br/>
 
 ### 프로젝트 기대 효과
@@ -157,25 +157,25 @@ DBeaver 실행 후, 계정생성 권한 있는 계정에서 sql\create_tables.sq
 ### 0. 메뉴
 <br/>
 
-![](images\menu_design.png)
+![](/images/menu_design.png)
 <br/>
 
 ### 1. 연도별 자동차 등록 현황
 <br/>
 
-![](images\year_design.png)
+![](/images/year_design.png)
 <br/>
 
 ### 2. 지역별 자동차 등록 현황
 <br/>
 
-![](images\region_design.png)
+![](/images/region_design.png)
 <br/>
 
 ### 3. 주요 3개 기업 차량 구매 FAQ
 <br/>
 
-![](images\faq_design.png)
+![](/images/faq_design.png)
 <br/>
 <br/>
 

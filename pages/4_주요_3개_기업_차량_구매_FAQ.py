@@ -186,11 +186,7 @@ with tab2:
 
 
 with tab3:
-<<<<<<< HEAD:pages/3_주요_3개_기업_차량_구매_FAQ.py
-    st.write("제네시스 차량 구매 FAQ")
-=======
     st.image("images\jenesis.png")
->>>>>>> origin/develop:pages/4_주요_3개_기업_차량_구매_FAQ.py
 
     # JSON 파일 로드
     file_path = 'data\genesis_faq.json'
@@ -214,11 +210,8 @@ with tab3:
     def search():
         st.session_state.search_query = st.session_state.search_input
 
-<<<<<<< HEAD:pages/3_주요_3개_기업_차량_구매_FAQ.py
-    search_query = st.text_input("", key="search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
-=======
     search_query = st.text_input("", key="j_search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
->>>>>>> origin/develop:pages/4_주요_3개_기업_차량_구매_FAQ.py
+
     if search_query:
         filtered_data  = [item for item in j_faq_data if search_query.lower() in item['question'].lower() or search_query.lower() in item['answer'].lower()]
     else:
@@ -230,7 +223,7 @@ with tab3:
         st.stop()
 
     # 한 페이지에 표시할 FAQ 수와 페이지 계산
-    faq_per_page = 5
+    faq_per_page = 10
     total_pages = (len(filtered_data) - 1) // faq_per_page + 1
 
     # 현재 페이지에 해당하는 FAQ 가져오기

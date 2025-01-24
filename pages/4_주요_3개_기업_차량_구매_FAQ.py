@@ -128,7 +128,7 @@ with tab2:
     st.text_input("", key="search_input", placeholder="검색어를 입력하세요...", label_visibility="collapsed", on_change=search)
 
     if 'search_query' in st.session_state and st.session_state.search_query:
-        k_faq_data = [item for item in k_faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
+        filtered_data = [item for item in k_faq_data if st.session_state.search_query.lower() in item['question'].lower() or st.session_state.search_query.lower() in item['answer'].lower()]
     else:
         filtered_data = k_faq_data
 
@@ -139,7 +139,7 @@ with tab2:
 
     # 페이지네이션 설정
     items_per_page = 10
-    total_pages = (len(k_faq_data) + items_per_page - 1) // items_per_page
+    total_pages = (len(filtered_data) + items_per_page - 1) // items_per_page
 
 
     # 페이지 번호 선택
@@ -152,7 +152,7 @@ with tab2:
     page = st.session_state.page
     start_idx = (page - 1) * items_per_page
     end_idx = start_idx + items_per_page
-    current_page_data = k_faq_data[start_idx:end_idx]
+    current_page_data = filtered_data[start_idx:end_idx]
 
     for item in current_page_data:
         question = item.get("question", "질문 없음")

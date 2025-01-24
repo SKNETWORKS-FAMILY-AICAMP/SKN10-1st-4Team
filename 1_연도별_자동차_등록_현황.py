@@ -8,6 +8,8 @@ from common.insert_data_city import insert_data_city
 insert_data()
 insert_data_city()
 
+st.set_page_config(layout="centered")
+
 st.title("📊 연도별 자동차 등록 현황")
 st.divider()
 

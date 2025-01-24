@@ -75,5 +75,9 @@ else:
             title="조회결과"
         )
 
+        # axis title 업데이트
+        fig.update_xaxes(title_text="연도")
+        fig.update_yaxes(title_text="차량 수 (만대)")
+
         # 그래프 출력
         st.plotly_chart(fig)
